@@ -1,0 +1,29 @@
+import React from "react"
+import { AudioPlayerProvider } from "react-use-audio-player"
+import { useAudioPlayer } from "react-use-audio-player"
+
+export const ReactAudioPlayer = () => {
+  const AudioPlayer = ({ file }) => {
+    const { togglePlayPause, ready, loading, playing } = useAudioPlayer({
+      src: file,
+      format: "mp3",
+      autoplay: false,
+      onend: () => console.log("sound has ended!"),
+    })
+
+    if (!ready && !loading) return <div>No audio to play</div>
+    if (loading) return <div>Loading audio</div>
+
+    return (
+      <div>
+        <button onClick={togglePlayPause}>{playing ? "Pause" : "Play"}</button>
+      </div>
+    )
+  }
+
+  return (
+    <AudioPlayerProvider>
+      <AudioPlayer file="../assets/voices/kor_bye.mp3" />
+    </AudioPlayerProvider>
+  )
+}

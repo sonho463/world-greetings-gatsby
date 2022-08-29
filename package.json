@@ -18,9 +18,12 @@
     "gatsby-source-microcms": "^2.0.0",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
-    "use-sound": "^4.0.1"
+    "react-use-audio-player": "^1.2.6",
+    "use-sound": "^4.0.1",
+    "webpack-merge": "^5.8.0"
   },
   "devDependencies": {
+    "howler": "^2.2.3",
     "prettier": "^2.7.1"
   },
   "repository": {

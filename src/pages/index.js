@@ -1,12 +1,19 @@
 import React from "react"
-import useSound from "use-sound"
-import Sound from "../assets/voices/kor_bye.mp3"
 import { graphql } from "gatsby"
-
+import {VoiceList} from 'components/VoiceList'
+import useSound from "use-sound"
+import KorBye from "../assets/voices/kor_bye.mp3"
+import KumeBye from "../assets/voices/kume_bye.mp3"
 export default function Home({ data }) {
-  const [play, { stop, pause }] = useSound(Sound)
   const countryNameEdges = data.allMicrocmsCountry.edges
   const greetingsEdges = data.allMicrocmsGreetings.edges
+	const Sound = KumeBye
+  const [play, { stop, pause }] = useSound(Sound)
+
+	// React use audio player
+	// https://www.npmjs.com/package/react-use-audio-player
+
+
 
   return (
     <>
@@ -16,47 +23,30 @@ export default function Home({ data }) {
       <link rel="stylesheet" href="./style.css" />
       <title>Document</title>
       <h1>世界のあいさつ</h1>
+			{/* <Test /> */}
+
       <section className="table">
         <ul className="row">
-          {
-					countryNameEdges.map(({ node }) => {
-						console.log(node.country_name)
+          {countryNameEdges.map(({ node }) => {
             const countryId = node.countryId
             return (
               <li key="{node.id}" className="item">
                 <h2 className="country">{node.country_name}</h2>
-                <ul className="voice_list">
-                  {greetingsEdges.map(({ node }) => {
-										console.log (node.country.id === countryId)
-										console.log (node.country.id)
-										console.log (countryId)
-                    if (node.country.id === countryId) {
-                      return (
-                        <li key="{node.id}" className="voice">
-                          <figure>
-                            <figcaption>
-                              {node.japanese.greeting_word}：{node.foreign}
-                            </figcaption>
-                            <nav className="button-wrapper">
-                              <button onClick={() => play()}>再生</button>
-                              <button onClick={() => stop()}>停止</button>
-                              <button onClick={() => pause()}>一時停止</button>
-                            </nav>
-                            <audio controls="" src="./voices/kor_morning.mp3">
-                              Your browser does not support the
-                              <code>audio</code> element.
-                            </audio>
-                          </figure>
-                        </li>
-                      )
-                    }else{
-											return null
-										}
-                  })}
-                </ul>
+                <VoiceList
+                  greetingsEdges={data.allMicrocmsGreetings.edges}
+                  countryId={node.countryId}
+                  countryName={node.country_name}
+                  voice={node.voice}
+                />
+                {/* <nav className="button-wrapper">
+                  <button onClick={() => play()}>再生</button>
+                  <button onClick={() => stop()}>停止</button>
+                  <button onClick={() => pause()}>一時停止</button>
+                </nav> */}
+
               </li>
-            )})
-						}
+            )
+          })}
         </ul>
       </section>
     </>
