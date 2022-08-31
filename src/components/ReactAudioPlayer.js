@@ -2,10 +2,11 @@ import React from "react"
 import { AudioPlayerProvider } from "react-use-audio-player"
 import { useAudioPlayer } from "react-use-audio-player"
 
-export const ReactAudioPlayer = () => {
+export const ReactUseAudio = (props) => {
+	const {src} = props
   const AudioPlayer = ({ file }) => {
     const { togglePlayPause, ready, loading, playing } = useAudioPlayer({
-      src: file,
+      src: src,
       format: "mp3",
       autoplay: false,
       onend: () => console.log("sound has ended!"),
@@ -23,7 +24,7 @@ export const ReactAudioPlayer = () => {
 
   return (
     <AudioPlayerProvider>
-      <AudioPlayer file="../assets/voices/kor_bye.mp3" />
+      <AudioPlayer />
     </AudioPlayerProvider>
   )
 }

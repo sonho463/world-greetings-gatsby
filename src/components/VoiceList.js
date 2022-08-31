@@ -1,18 +1,22 @@
 import React from "react"
-import useSound from "use-sound"
-import KorBye from "assets/voices/kor_bye.mp3"
-import KumeBye from "assets/voices/kume_bye.mp3"
+import { ReactUseAudio } from "components/ReactAudioPlayer"
+
+// import useSound from "use-sound"
+// import KorBye from "/assets/voices/kor_bye.mp3"
+// import KumeBye from "/assets/voices/kume_bye.mp3"
 
 // サウンドファイルの名前をgraphqlで取得
 
 export const VoiceList = props => {
   const { countryId, countryName, voice } = props
   const itemList = []
-  const Sound = KumeBye
-  const [play, { stop, pause }] = useSound(Sound)
+
+  // const Sound = KumeBye
+  // const [play, { stop, pause }] = useSound(Sound)
   // console.log(props.greetingsEdges[0])
   props.greetingsEdges.forEach(ele => {
-    console.log(ele.node.japanese.greeting_word)
+    // console.log(ele.node.japanese.greeting_word)
+		const vPath = `/assets/voices/${ele.node.voice}.mp3`
     if (countryId === ele.node.country.id) {
       itemList.push(
         <li className="voice">
@@ -21,11 +25,13 @@ export const VoiceList = props => {
               {ele.node.japanese.greeting_word}：{ele.node.foreign}
             </figcaption>
           </figure>
-          <nav className="button-wrapper">
+          <ReactUseAudio src={vPath} />
+
+          {/* <nav className="button-wrapper">
             <button onClick={() => play()}>再生</button>
             <button onClick={() => stop()}>停止</button>
             <button onClick={() => pause()}>一時停止</button>
-          </nav>
+          </nav> */}
         </li>
       )
     }
