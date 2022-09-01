@@ -4,7 +4,8 @@ export const FV = () => {
   return (
     <>
 		<section className="fv">
-      <h1>First View</h1>
+      <h1>たぶんか&emsp;たいきた<br />
+				ペラペラあいさつ</h1>
 		</section>
 
     </>

@@ -24,7 +24,8 @@ export const VoiceList = props => {
       itemList.push(
         <li className="voice__item">
           <p>
-            {ele.node.japanese.greeting_word}：{ele.node.foreign}
+            {ele.node.japanese.greeting_word} <br />
+            {ele.node.foreign}
           </p>
           <div>
             <ReactUseAudio src={vPath} />

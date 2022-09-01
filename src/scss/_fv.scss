@@ -4,4 +4,11 @@
 	background-image: url('/assets/images/fv-bg.png');
 	background-size: cover;
 	height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	h1{
+		font-size:6rem;
+		color: v.$main-primary;
+	}
 }

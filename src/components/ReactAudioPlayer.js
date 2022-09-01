@@ -17,7 +17,7 @@ export const ReactUseAudio = (props) => {
 
     return (
       <div>
-        <button onClick={togglePlayPause}>{playing ? "Pause" : "Play"}</button>
+        <button onClick={togglePlayPause}>{playing ? "||" : "▶"}</button>
       </div>
     )
   }
