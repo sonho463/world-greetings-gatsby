@@ -4,6 +4,7 @@ import { VoiceList } from "components/VoiceList"
 import { ImageRender } from "../components/imageRender"
 import { ReactUseAudio } from "components/ReactAudioPlayer"
 import { GatsbyImage, getImage, getSrc } from "gatsby-plugin-image"
+import { FV } from "../components/fv"
 
 export default function Home({ data }) {
   const countryNameEdges = data.allMicrocmsCountry.edges
@@ -16,11 +17,11 @@ export default function Home({ data }) {
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="stylesheet" href="./style.css" />
       <title>Document</title>
-      <h1>世界のあいさつ</h1>
-      {/* <Test /> */}
 
-      {/* <ReactAudioPlayer src={vvPath} autoPlay controls /> */}
+			<body>
 
+
+<FV />
       <section className="table">
         <ul className="row">
           {countryNameEdges.map(({ node }) => {
@@ -62,6 +63,7 @@ export default function Home({ data }) {
           })}
         </ul>
       </section>
+			</body>
     </>
   )
 }
