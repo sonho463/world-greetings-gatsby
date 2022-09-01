@@ -57,6 +57,12 @@ figure.snip1195 h4 {
   letter-spacing: 1px;
   z-index: 1;
 }
+figure.snip1195:hover h4 {
+	font-size: 44px;
+	color: v.$color-black;
+	background-color: rgba(255,255,255,.7);
+}
+
 figure.snip1195 p {
   font-size: 0.7em;
   font-weight: 500;
@@ -97,11 +103,13 @@ figure.snip1195 .add-to-cart {
 }
 figure.snip1195:hover img,
 figure.snip1195.hover img {
-  opacity: 0.6;
+  opacity: 1;
   -webkit-transform: scale(1.1);
   transform: scale(1.1);
+	filter: brightness(1);
+
 }
 figure.snip1195:hover .add-to-cart,
 figure.snip1195.hover .add-to-cart {
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 1);
 }
