@@ -2,23 +2,12 @@ import React from "react"
 import { graphql } from "gatsby"
 import { VoiceList } from "components/VoiceList"
 import { ImageRender } from "../components/imageRender"
-// import useSound from "use-sound"
-// import KorBye from "./voices/kor_bye.mp3"
-// import KumeBye from "./voices/kume_bye.mp3"
 import { ReactUseAudio } from "components/ReactAudioPlayer"
-// import ReactAudioPlayer from "react-audio-player"
 import { GatsbyImage, getImage, getSrc } from "gatsby-plugin-image"
 
 export default function Home({ data }) {
   const countryNameEdges = data.allMicrocmsCountry.edges
   const greetingsEdges = data.allMicrocmsGreetings.edges
-  // const Sound = KumeBye
-  // const [play, { stop, pause }] = useSound(Sound)
-
-  // const vvPath = "/voices/kor_bye.mp3"
-
-  // React use audio player
-  // https://www.npmjs.com/package/react-use-audio-player
 
   return (
     <>
@@ -40,30 +29,38 @@ export default function Home({ data }) {
 
             return (
               <li key="{node.id}" className="item">
-                <div className="image-wrapper">
-                  <ImageRender
-                    url={node.country_image.url}
-                    alt={`test`}
-                    compress="auto=compress"
-                    format="auto=format"
-                    w="w=300"
-                    h="h=200"
-                    fit="fit=crop"
-                  />
-                </div>
-
-                <h2 className="country">{node.country_name}</h2>
-                <VoiceList
-                  greetingsEdges={data.allMicrocmsGreetings.edges}
-                  countryId={node.countryId}
-                  countryName={node.country_name}
-                  voice={node.voice}
-                />
-                {/* <nav className="button-wrapper">
-                  <button onClick={() => play()}>再生</button>
-                  <button onClick={() => stop()}>停止</button>
-                  <button onClick={() => pause()}>一時停止</button>
-                </nav> */}
+                <figure class="snip1195">
+                  <h4>{node.country_name}</h4>
+                  <div class="image">
+                    <ImageRender
+                      url={node.country_image.url}
+                      alt={`test`}
+                      compress="auto=compress"
+                      format="auto=format"
+                      w="w=300"
+                      h="h=200"
+                      fit="fit=crop"
+                    />
+                  </div>
+                  <div class="rating">
+                    <i class="ion-ios-star"></i>
+                    <i class="ion-ios-star"></i>
+                    <i class="ion-ios-star"></i>
+                    <i class="ion-ios-star"></i>
+                    <i class="ion-ios-star-outline"></i>
+                  </div>
+                  <figcaption>
+                    <p>
+                      {node.countryId}
+                    </p>
+                    {/* <div class="price">
+                      <s>$24.00</s>$19.00
+                    </div> */}
+                  </figcaption>
+                  <a href="#" class="add-to-cart">
+                    詳しく見る
+                  </a>
+                </figure>
               </li>
             )
           })}
