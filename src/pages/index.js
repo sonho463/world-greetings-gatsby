@@ -8,6 +8,19 @@ import { FV } from "../components/fv"
 import SEO from "../components/seo"
 
 export default function Home({ data }) {
+
+	if ('serviceWorker' in navigator) {
+		window.addEventListener('load', function() {
+			navigator.serviceWorker.register('/sw.js').then(function(registration) {
+				// Registration was successful
+				console.log('ServiceWorker registration successful with scope: ', registration.scope);
+			}, function(err) {
+				// registration failed :(
+				console.log('ServiceWorker registration failed: ', err);
+			});
+		});
+	}
+
   const countryNameEdges = data.allMicrocmsCountry.edges
   const greetingsEdges = data.allMicrocmsGreetings.edges
 
