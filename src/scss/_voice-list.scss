@@ -1,0 +1,19 @@
+ul.row{
+	display: flex;
+	flex-wrap: wrap;
+	gap: 2%;
+	> li{
+		width: 45%;
+	}
+}
+
+
+.voice__item{
+	display: flex;
+	p{
+		flex: 3;
+	}
+	> div{
+		flex: 1;
+	}
+}

@@ -43,23 +43,19 @@ export default function Home({ data }) {
                     />
                   </div>
                   <div class="rating">
-                    <i class="ion-ios-star"></i>
-                    <i class="ion-ios-star"></i>
-                    <i class="ion-ios-star"></i>
-                    <i class="ion-ios-star"></i>
-                    <i class="ion-ios-star-outline"></i>
+                    <p>{node.countryId}</p>
                   </div>
                   <figcaption>
-                    <p>
-                      {node.countryId}
-                    </p>
-                    {/* <div class="price">
-                      <s>$24.00</s>$19.00
-                    </div> */}
+                    <ul>
+                      <VoiceList
+                        greetingsEdges={data.allMicrocmsGreetings.edges}
+                        countryId={node.countryId}
+                      />
+                    </ul>
                   </figcaption>
-                  <a href="#" class="add-to-cart">
+                  {/* <a href="#" class="add-to-cart">
                     詳しく見る
-                  </a>
+                  </a> */}
                 </figure>
               </li>
             )

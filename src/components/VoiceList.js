@@ -8,7 +8,10 @@ import { ReactUseAudio } from "components/ReactAudioPlayer"
 // サウンドファイルの名前をgraphqlで取得
 
 export const VoiceList = props => {
-  const { countryId, countryName, voice } = props
+  const {
+    countryId,
+    //  countryName, voice
+  } = props
   const itemList = []
 
   // const Sound = KumeBye
@@ -16,16 +19,16 @@ export const VoiceList = props => {
   // console.log(props.greetingsEdges[0])
   props.greetingsEdges.forEach(ele => {
     // console.log(ele.node.japanese.greeting_word)
-		const vPath = `/assets/voices/${ele.node.voice}.mp3`
+    const vPath = `/assets/voices/${ele.node.voice}.mp3`
     if (countryId === ele.node.country.id) {
       itemList.push(
-        <li className="voice">
-          <figure>
-            <figcaption>
-              {ele.node.japanese.greeting_word}：{ele.node.foreign}
-            </figcaption>
-          </figure>
-          <ReactUseAudio src={vPath} />
+        <li className="voice__item">
+          <p>
+            {ele.node.japanese.greeting_word}：{ele.node.foreign}
+          </p>
+          <div>
+            <ReactUseAudio src={vPath} />
+          </div>
 
           {/* <nav className="button-wrapper">
             <button onClick={() => play()}>再生</button>
