@@ -9,6 +9,17 @@ require('dotenv').config({
 });
 
 module.exports = {
+	siteMetadata: {
+    title: "世界のあいさつ",
+    url: "https://world-greetongs.netlify.app",
+    siteUrl: "https://world-greetongs.netlify.app",
+    titleTemplate: "%s · The Real Hero",
+    description:
+      "世界のあいさつのお手本を聞くことができます。",
+    image: "/og_image.jpg",
+    twitterUsername: "@horumont",
+  },
+
   /* Your site config here */
   plugins: [
     {
@@ -29,9 +40,23 @@ module.exports = {
         ],
       },
     },
+		{
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: "世界のあいさつ",
+        short_name: "せかはろ",
+        start_url: "/",
+        // background_color: "#ffea18",
+        // theme_color: "#5155c0",
+        display: "standalone",
+        icon: "favicon.png",
+      },
+    },
 		`gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
 		`gatsby-plugin-sass`,
+		"gatsby-plugin-react-helmet",
+
   ],
 }

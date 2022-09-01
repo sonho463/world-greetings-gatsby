@@ -5,6 +5,7 @@ import { ImageRender } from "../components/imageRender"
 import { ReactUseAudio } from "components/ReactAudioPlayer"
 import { GatsbyImage, getImage, getSrc } from "gatsby-plugin-image"
 import { FV } from "../components/fv"
+import SEO from "../components/seo"
 
 export default function Home({ data }) {
   const countryNameEdges = data.allMicrocmsCountry.edges
@@ -12,11 +13,13 @@ export default function Home({ data }) {
 
   return (
     <>
-      <meta charSet="UTF-8" />
+      {/* <meta charSet="UTF-8" />
       <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="stylesheet" href="./style.css" />
-      <title>Document</title>
+      <title>Document</title> */}
+
+      <SEO />
 
       <body>
         <FV />
