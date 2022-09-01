@@ -4,7 +4,11 @@
 ul.row{
 	display: flex;
 	flex-wrap: wrap;
+	width: 90%;
+	justify-content: space-between;
 	gap: 2%;
+	margin-right: auto;
+	margin-left: auto;
 	> li{
 		width: 45%;
 	}
