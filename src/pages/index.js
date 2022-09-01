@@ -4,7 +4,7 @@ import { VoiceList } from "components/VoiceList"
 import { ImageRender } from "../components/imageRender"
 import { ReactUseAudio } from "components/ReactAudioPlayer"
 import { GatsbyImage, getImage, getSrc } from "gatsby-plugin-image"
-import { FV } from "../components/Fv"
+import { FV } from "../components/fv"
 
 export default function Home({ data }) {
   const countryNameEdges = data.allMicrocmsCountry.edges
