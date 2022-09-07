@@ -1,41 +1,42 @@
 @use "./variables" as v;
 
-
-ul.row{
-	display: flex;
-	flex-wrap: wrap;
-	width: 90%;
-	justify-content: space-between;
-	gap: 2%;
-	margin-right: auto;
-	margin-left: auto;
-	> li{
-		width: 45%;
-	}
+ul.row {
+  display: flex;
+  flex-wrap: wrap;
+  width: 90%;
+  justify-content: space-between;
+  gap: 2%;
+  margin-right: auto;
+  margin-left: auto;
+  > li {
+    width: 45%;
+    @include v.mq(lg) {
+      width: 100%;
+    }
+  }
 }
 
+.voice__item {
+  display: flex;
+  border-bottom: 1px solid v.$shadow-cBlue;
+  margin-top: 8px;
 
-.voice__item{
-	display: flex;
-	border-bottom: 1px solid v.$shadow-cBlue;
-	margin-top: 8px;
-
-	p{
-		flex: 3;
-		text-align: left;
-		margin-bottom: 0 !important;
-	}
-	> div{
-		flex: 1;
-	}
-	button{
-		background-color: v.$accent-primary;
-		color: v.$main-primary;
-		padding: 4px;
-		// font-size: 1.2rem;
-		border-radius: 4px;
-		&:hover{
-			opacity: .6;
-		}
-	}
+  p {
+    flex: 3;
+    text-align: left;
+    margin-bottom: 0 !important;
+  }
+  > div {
+    flex: 1;
+  }
+  button {
+    background-color: v.$accent-primary;
+    color: v.$main-primary;
+    padding: 4px;
+    // font-size: 1.2rem;
+    border-radius: 4px;
+    &:hover {
+      opacity: 0.6;
+    }
+  }
 }

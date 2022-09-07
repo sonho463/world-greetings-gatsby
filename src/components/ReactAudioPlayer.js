@@ -12,8 +12,8 @@ export const ReactUseAudio = (props) => {
       onend: () => console.log("sound has ended!"),
     })
 
-    if (!ready && !loading) return <div>No audio to play</div>
-    if (loading) return <div>Loading audio</div>
+    if (!ready && !loading) return <div>ー</div>
+    if (loading) return <div>Loading</div>
 
     return (
       <div>
