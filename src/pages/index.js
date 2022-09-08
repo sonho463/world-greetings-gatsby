@@ -46,20 +46,22 @@ export default function Home({ data }) {
                 <li key="{node.id}" className="item">
                   <figure class="snip1195">
                     <h4>{node.country_name}</h4>
-                    <div class="image">
-                      <ImageRender
-                        url={node.country_image.url}
-                        alt={`test`}
-                        compress="auto=compress"
-                        format="auto=format"
-                        w="w=300"
-                        h="h=200"
-                        fit="fit=crop"
-                      />
-                    </div>
-                    <div class="rating">
-                      <p>{node.countryId}</p>
-                    </div>
+                    <div className="image-block">
+											<div class="image">
+												<ImageRender
+													url={node.country_image.url}
+													alt={`test`}
+													compress="auto=compress"
+													format="auto=format"
+													w="w=300"
+													h="h=200"
+													fit="fit=crop"
+												/>
+											</div>
+											<div class="rating">
+												<p>{node.countryId}</p>
+											</div>
+										</div>
                     <figcaption>
                       <ul>
                         <VoiceList

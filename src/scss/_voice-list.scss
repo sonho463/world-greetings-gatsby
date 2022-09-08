@@ -9,7 +9,7 @@ ul.row {
   margin-right: auto;
   margin-left: auto;
   > li {
-    width: 45%;
+    width: 100%;
     @include v.mq(lg) {
       width: 100%;
     }
