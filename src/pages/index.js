@@ -8,32 +8,24 @@ import { FV } from "../components/fv"
 import SEO from "../components/seo"
 
 export default function Home({ data }) {
-
-	// if ('serviceWorker' in navigator) {
-	// 	window.addEventListener('load', function() {
-	// 		navigator.serviceWorker.register('/sw.js').then(function(registration) {
-	// 			// Registration was successful
-	// 			console.log('ServiceWorker registration successful with scope: ', registration.scope);
-	// 		}, function(err) {
-	// 			// registration failed :(
-	// 			console.log('ServiceWorker registration failed: ', err);
-	// 		});
-	// 	});
-	// }
+  // if ('serviceWorker' in navigator) {
+  // 	window.addEventListener('load', function() {
+  // 		navigator.serviceWorker.register('/sw.js').then(function(registration) {
+  // 			// Registration was successful
+  // 			console.log('ServiceWorker registration successful with scope: ', registration.scope);
+  // 		}, function(err) {
+  // 			// registration failed :(
+  // 			console.log('ServiceWorker registration failed: ', err);
+  // 		});
+  // 	});
+  // }
 
   const countryNameEdges = data.allMicrocmsCountry.edges
   const greetingsEdges = data.allMicrocmsGreetings.edges
 
   return (
     <>
-      {/* <meta charSet="UTF-8" />
-      <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <link rel="stylesheet" href="./style.css" />
-      <title>Document</title> */}
-
       <SEO />
-
       <body>
         <FV />
         <section className="table">
@@ -47,21 +39,21 @@ export default function Home({ data }) {
                   <figure class="snip1195">
                     <h4>{node.country_name}</h4>
                     <div className="image-block">
-											<div class="image">
-												<ImageRender
-													url={node.country_image.url}
-													alt={`test`}
-													compress="auto=compress"
-													format="auto=format"
-													w="w=300"
-													h="h=200"
-													fit="fit=crop"
-												/>
-											</div>
-											<div class="rating">
-												<p>{node.countryId}</p>
-											</div>
-										</div>
+                      <div class="image">
+                        <ImageRender
+                          url={node.country_image.url}
+                          alt={`test`}
+                          compress="auto=compress"
+                          format="auto=format"
+                          w="w=300"
+                          h="h=200"
+                          fit="fit=crop"
+                        />
+                      </div>
+                      <div class="rating">
+                        <p>{node.countryId}</p>
+                      </div>
+                    </div>
                     <figcaption>
                       <ul>
                         <VoiceList
@@ -97,7 +89,7 @@ export const query = graphql`
         }
       }
     }
-    allMicrocmsGreetings {
+    allMicrocmsGreetings(sort: {fields: japanese___greeting_word, order: ASC}) {
       edges {
         node {
           country {
